@@ -216,9 +216,8 @@ def show_input_page(pindah_halaman):
                             "kelompok": nama_dep,
                             "gejala": [data_gejala[trigger]["nama"]],
                             "pesan": aturan["pesan"]
-                      })
-                        
-                    ada_konflik = True
+                        })   
+                        ada_konflik = True
 
         submit = st.button("Kirim", use_container_width=True, type="primary", disabled=ada_konflik)
         if submit:
