@@ -1,0 +1,1331 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+html, body, [data-testid="stAppViewContainer"] {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8FAFC;
+}
+
+div.block-container {
+    padding-top: 1rem !important; /* Defaultnya sekitar 6rem. Ubah jadi 1rem kalau mau lebih mepet lagi */
+}
+
+header[data-testid="stHeader"] {
+    visibility: hidden !important;
+    height: 0px !important;
+}
+
+.sub-title {
+    color: #64748B;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+/* --- MENGHILANGKAN IKON LINK PADA JUDUL/HEADER --- */
+.stMarkdown a.header-anchor {
+    display: none !important;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    display: none !important;
+}
+
+
+/* Card Container */
+.custom-card {
+    background-color: #FFFFFF !important;
+    padding: 25px;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #F1F5F9;
+    border-bottom: none; /* Hilangkan garis bawah agar menyatu */
+}
+
+.action-card {
+    background-color: #0369A1;
+    color: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+/* Memaksa semua teks di dalam kartu tetap berwarna gelap */
+.custom-card h3, .custom-card p, .custom-card span {
+    color: #1E293B !important;
+}
+
+
+/* Mengunci warna teks agar tidak berubah di Dark Mode */
+.card-header-flex h3 {
+    margin: 0 !important;
+    color: #1E293B !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+
+.card-header-flex p {
+    margin: 0 !important;
+    color: #64748B !important;
+    font-size: 14px !important;
+}
+
+/* Warna label di atas input */
+label[data-testid="stWidgetLabel"] p {
+    color: #1E293B !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+}
+
+
+/* --- WARNA BACKGROUND CUSTOM UNTUK KARTU (HASIL INSPECT ELEMENT) --- */
+
+/* 1. Menargetkan kotak pembungkus luar (stLayoutWrapper) di dalam kolom utama */
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] {
+    background-color: #ffffff !important;
+    border-color: transparent !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    padding: 20px !important;
+}
+
+/* 2. Memaksa lapisan di dalamnya menjadi transparan agar warna luarnya terlihat */
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] {
+    background-color: transparent !important; 
+    border: none !important;
+}
+
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"]  {
+    background-color: #F8FAFC !important; 
+    border: none !important;
+    padding: 20px !important;
+    border-radius: 16px !important;
+}
+
+/* 3. Mengubah warna teks Judul dan Paragraf agar tetap kontras (putih) */
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] h3,
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] p {
+    color: #000000 !important;
+}
+
+/* --- TATA LETAK RADIO BUTTON GAYA KARTU KUESIONER (FULL WIDTH) --- */
+
+/* 1. JURUS PENDOBRAK: Memaksa bungkus paling luar Streamlit agar melebar 100% */
+div[data-testid="stRadio"],
+div.stElementContainer:has(div[data-testid="stRadio"]) {
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
+/* 2. Menyulap wadah pilihan menjadi Kartu Putih */
+div[role="radiogroup"] {
+    background-color: #ffffff !important;
+    border: 1.5px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    margin-top: 5px !important;
+    padding: 8px 8px 8px 8px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important; /* Menyebar rata ujung ke ujung */
+    width: 100% !important;
+}
+
+/* 3. Memaksa setiap pilihan membagi ruang sama rata & susun Atas-Bawah */
+label[data-baseweb="radio"] {
+    display: flex !important;
+    flex-direction: column !important; /* Bulatan di atas, teks di bawah */
+    align-items: center !important;    /* Rata tengah */
+    justify-content: flex-start !important;
+    flex: 1 !important;                /* JURUS KUNCI: Membagi lebar sama rata */
+    cursor: pointer !important;
+    margin: 0px !important;
+}
+/* 4. Format teks pilihan (Tembus ke semua elemen di dalamnya) */
+label[data-baseweb="radio"] > div:last-child, label[data-baseweb="radio"] > div:last-child * {
+    margin: 5px 0 0 0 !important;      /* Singkatan dari margin top 5px, sisanya 0 */
+    text-align: center !important;
+    font-size: 13px !important;
+    color: #64748B !important;
+    white-space: normal !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+}
+
+/* =========================================
+   HALAMAN HASIL PREDIKSI (OUTPUT)
+   ========================================= */
+
+/* Kartu Utama (Kiri Atas) */
+.hasil-main-card {
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid #E2E8F0;
+    border-left: 8px solid #025CA1; /* Garis tebal biru di kiri */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Kotak Persentase (Kiri Atas) */
+.hasil-score-box {
+    background-color: #E0F2FE;
+    border: 2px solid #BAE6FD;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    min-width: 130px;
+}
+
+/* Kartu Analisis Detail (Progress Bar) */
+.hasil-detail-card {
+    background-color: #FFFFFF;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+}
+
+/* Base Custom Progress Bar */
+.custom-progress-bg {
+    background-color: #E2E8F0;
+    height: 8px;
+    border-radius: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Isi Custom Progress Bar (Hijau/Teal) */
+.custom-progress-fill {
+    background-color: #0F766E; 
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.8s ease-in-out;
+}
+
+/* Kartu Sidebar Kanan */
+.hasil-sidebar-card {
+    background-color: #f4f8f9;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+}
+
+/* Desain Kapsul untuk Gejala Terpilih */
+.gejala-pill {
+    display: block; /* Dibuat block agar ke bawah seperti di gambar */
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+/* Halaman info */
+
+/* =========================================
+   HERO TITLE
+========================================= */
+
+.info-hero {
+    padding: 0px 0 10px 0 !important;
+    background: transparent !important;
+}
+
+.info-main-title {
+    font-size: 72x !important;
+    font-weight: 900 !important;
+    line-height: 0.95 !important;
+    letter-spacing: -1px !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    font-family: "Inter", sans-serif !important;
+}
+
+.info-main-title .highlight {
+    color: #1565C0 !important;
+}
+
+.info-subtitle{
+    color:#475569;
+    font-size:16px;
+    line-height:1.8;
+    max-width:720px;
+}
+
+/* output prediksi */
+.modern-card{
+    background:white;
+    border-radius:24px;
+    padding:32px;
+    border:1px solid #E2E8F0;
+    box-shadow:
+    0 4px 14px rgba(15,23,42,0.04);
+}
+
+.prediction-info{
+color:#64748B;
+font-size:15px;
+line-height:1.9;
+margin-top:12px;
+margin-bottom:28px;
+}
+
+.prediction-card{
+background:#F8FAFC;
+border-radius:22px;
+padding:22px;
+margin-bottom:18px;
+border:1px solid #E2E8F0;
+transition:0.2s ease;
+}
+
+.prediction-card:hover{
+transform:translateY(-2px);
+}
+
+.prediction-top{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:16px;
+}
+
+.prediction-left{
+display:flex;
+gap:16px;
+align-items:flex-start;
+}
+
+.prediction-icon{
+width:52px;
+height:52px;
+border-radius:14px;
+background:#DBEAFE;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+flex-shrink:0;
+}
+
+.disease-name{
+font-size:22px;
+font-weight:700;
+color:#0F172A;
+margin-bottom:8px;
+}
+
+.disease-desc{
+font-size:14px;
+line-height:1.8;
+color:#64748B;
+max-width:420px;
+}
+
+.probability-box{
+background:#E0F2FE;
+color:#2563EB;
+font-size:12px;
+font-weight:700;
+padding:10px 14px;
+border-radius:12px;
+white-space:nowrap;
+}
+
+.major-title {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #1E40AF;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.major-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.major-chip {
+    background: #EFF6FF;
+    color: #1D4ED8;
+    border: 1px solid #BFDBFE;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+
+.warning-card{
+    background:#FFF7F7;
+    border-radius:24px;
+    padding:32px;
+    border:1px solid #FECACA;
+}
+
+.card-title{
+    font-size:28px;
+    font-weight:700;
+    color:#0F172A;
+    margin-bottom:22px;
+}
+
+.card-text{
+    color:#334155;
+    font-size:16px;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.warning-list{
+    color:#7F1D1D;
+    line-height:2;
+    padding-left:18px;
+}
+
+/* indikator klinis */
+.indicator-section-title{
+font-size:18px;
+font-weight:700;
+color:#091735;
+margin-top:28px;
+margin-bottom:16px;
+}
+
+.duration-box{
+background:#F8FAFC;
+border-radius:18px;
+padding:18px;
+font-size:14px;
+line-height:1.8;
+color:#64748B;
+border:1px solid #E2E8F0;
+}
+
+.indicator-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+margin-top:10px;
+}
+
+.indicator-item{
+background:#F8FAFC;
+border-radius:16px;
+padding:16px;
+border-left:4px solid #2563EB;
+font-size:14px;
+font-weight:500;
+line-height:1.6;
+color:#0F172A;
+}
+
+.indicator-code{
+font-size:11px;
+font-weight:700;
+color:#2563EB;
+margin-bottom:6px;
+letter-spacing:1px;
+}
+
+.risk-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+margin-top:10px;
+}
+
+.risk-item{
+background:#F0FDFA;
+border:1px solid #CCFBF1;
+border-radius:16px;
+padding:16px;
+font-size:14px;
+font-weight:600;
+color:#0F766E;
+text-align:center;
+}
+
+.scroll-card{
+max-height:1215px;
+overflow-y:auto;
+padding-right:8px;
+}
+
+.scroll-card::-webkit-scrollbar{
+width:6px;
+}
+
+.scroll-card::-webkit-scrollbar-thumb{
+background:#CBD5E1;
+border-radius:20px;
+}
+
+/* logic card */
+/* =========================
+CF SECTION
+========================= */
+
+.cf-section{
+margin-top:28px;
+background:linear-gradient(135deg,#031B2A,#062B3F);
+border-radius:34px;
+padding:42px;
+display:flex;
+gap:42px;
+justify-content:space-between;
+align-items:flex-start;
+color:white;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(2,12,27,0.35);
+}
+
+.cf-left{
+flex:0.95;
+}
+
+.cf-right{
+flex:1.1;
+}
+
+/* =========================
+LEFT
+========================= */
+
+.cf-badge{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+background:#0B73F6;
+padding:7px 16px;
+border-radius:999px;
+font-size:11px;
+font-weight:800;
+letter-spacing:1px;
+margin-bottom:20px;
+}
+
+.cf-title{
+font-size:28px;
+font-weight:800;
+line-height:1.25;
+margin-bottom:22px;
+color:white;
+}
+
+.cf-subtitle{
+font-size:15px;
+font-weight:700;
+margin-bottom:20px;
+color:#F8FAFC;
+}
+
+.cf-step{
+display:flex;
+gap:14px;
+margin-bottom:18px;
+align-items:flex-start;
+}
+
+.cf-step span{
+font-size:18px;
+font-weight:800;
+color:white;
+min-width:22px;
+line-height:1.5;
+}
+
+.cf-step div{
+font-size:15px;
+line-height:1.85;
+color:#CBD5E1;
+max-width:560px;
+}
+
+/* =========================
+TOTAL BOX
+========================= */
+
+.cf-total-box{
+margin-top:28px;
+display:flex;
+align-items:center;
+gap:14px;
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.08);
+padding:18px 20px;
+border-radius:16px;
+width:fit-content;
+backdrop-filter:blur(8px);
+}
+
+.cf-total-icon{
+font-size:24px;
+}
+
+.cf-total-title{
+font-size:15px;
+font-weight:800;
+letter-spacing:0.5px;
+color:#67E8F9;
+}
+
+.cf-total-sub{
+font-size:13px;
+color:#CBD5E1;
+margin-top:2px;
+}
+
+/* =========================
+RIGHT PANEL
+========================= */
+
+.cf-panel{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:24px;
+padding:28px;
+backdrop-filter:blur(12px);
+}
+
+.cf-panel-title{
+font-size:12px;
+font-weight:800;
+letter-spacing:2px;
+color:#94A3B8;
+margin-bottom:14px;
+}
+
+.cf-panel-title.second{
+margin-top:26px;
+}
+
+/* =========================
+GRID PAKAR
+========================= */
+
+.cf-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.cf-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 14px;
+border-radius:10px;
+font-size:13px;
+font-weight:700;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.cf-item span{
+color:white;
+}
+
+.cf-item b{
+padding:3px 8px;
+border-radius:6px;
+font-size:12px;
+}
+
+.cf-item.major{
+background:rgba(99,102,241,0.16);
+}
+
+.cf-item.major b{
+background:#A5B4FC;
+color:#312E81;
+}
+
+.cf-item.medium{
+background:rgba(20,184,166,0.16);
+}
+
+.cf-item.medium b{
+background:#5EEAD4;
+color:#134E4A;
+}
+
+.cf-item.minor{
+background:rgba(245,158,11,0.16);
+}
+
+.cf-item.minor b{
+background:#FCD34D;
+color:#78350F;
+}
+
+.cf-item.none{
+background:rgba(148,163,184,0.12);
+}
+
+.cf-item.none b{
+background:#CBD5E1;
+color:#334155;
+}
+
+/* =========================
+USER GRID
+========================= */
+
+.cf-grid-user{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:12px;
+}
+
+.cf-user{
+padding:14px 12px;
+border-radius:10px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.cf-user span{
+display:block;
+font-size:12px;
+font-weight:700;
+margin-bottom:6px;
+color:white;
+}
+
+.cf-user b{
+font-size:13px;
+padding:4px 10px;
+border-radius:6px;
+}
+
+.cf-user.tidak{
+background:rgba(239,68,68,0.16);
+}
+
+.cf-user.tidak b{
+background:#FDA4AF;
+color:#7F1D1D;
+}
+
+.cf-user.mungkin{
+background:rgba(148,163,184,0.12);
+}
+
+.cf-user.mungkin b{
+background:#CBD5E1;
+color:#334155;
+}
+
+.cf-user.yakin{
+background:rgba(16,185,129,0.16);
+}
+
+.cf-user.yakin b{
+background:#86EFAC;
+color:#14532D;
+}
+
+/* =========================
+FORMULA
+========================= */
+
+.cf-formula-box{
+margin-top:8px;
+background:rgba(0,0,0,0.22);
+border-radius:16px;
+padding:20px;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.cf-formula-main{
+font-family:monospace;
+font-size:18px;
+font-weight:700;
+color:#E2E8F0;
+margin-bottom:18px;
+}
+
+.cf-formula-main.second{
+margin-bottom:0;
+}
+
+.cf-formula-sub{
+font-size:12px;
+font-weight:700;
+letter-spacing:1px;
+color:#94A3B8;
+margin-bottom:10px;
+}
+
+/* =========================
+NOTE
+========================= */
+
+.cf-note{
+margin-top:18px;
+font-size:13px;
+line-height:1.8;
+color:#94A3B8;
+font-style:italic;
+text-align:center;
+}
+
+/* ringkasan gejala */
+.summary-title{
+    margin-top:28px;
+    margin-bottom:14px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    color:#64748B;
+    background-color: #F8FAFC;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+}
+
+.gejala-match{
+    background:#EFF6FF;
+    border:1px solid #BFDBFE;
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.gejala-name{
+    font-size:15px;
+    font-weight:600;
+    color:#1E3A8A;
+}
+
+.gejala-tag{
+    font-size:10px;
+    font-weight:700;
+    color:#0284C7;
+    margin-top:4px;
+}
+
+.gejala-score{
+    font-size:14px;
+    font-weight:700;
+    color:#2563EB;
+}
+
+.gejala-unmatch{
+    background:#F8FAFC;
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:10px;
+    color:#94A3B8;
+    font-size:14px;
+}
+
+.risk-pill{
+    background:#F1F5F9;
+    border:1px solid #CBD5E1;
+    border-radius:10px;
+    padding:10px 14px;
+    margin-bottom:10px;
+    font-size:13px;
+    color:#334155;
+    font-weight:500;
+}
+.sidebar-label{
+    font-size: 7x; font-weight: 800; color: #64748B; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase
+}
+
+.sidebar-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:16px;
+    font-size:13px;
+    color:#475569;
+}
+
+.risk-age-box{
+    background:#FEF3C7;
+    color:#92400E;
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.scroll-hasil{
+max-height:900px;
+overflow-y:auto;
+padding-right:20px;
+}
+
+.scroll-hasil::-webkit-scrollbar{
+width:6px;
+}
+
+.scroll-hasil::-webkit-scrollbar-thumb{
+background:#CBD5E1;
+border-radius:20px;
+}
+
+/* gagal card */
+.gagal-card{
+border-left:6px solid #64748B;
+}
+
+.score-gagal{
+background:#F8FAFC!important;
+border:2px solid #E2E8F0!important;
+}
+
+.inkonklusif-info{
+margin-top:20px;
+padding:16px;
+background:#F8FAFC;
+border-radius:14px;
+font-size:14px;
+line-height:1.8;
+color:#475569;
+}
+
+/* Panduan Keyakinan */
+.cf-guide-card{
+background:#FFFFFF;
+border-radius:24px;
+padding:24px;
+margin-top:3px;
+border:1px solid #E2E8F0;
+box-shadow:0 4px 14px rgba(15,23,42,0.04);
+}
+
+.cf-guide-title{
+font-size:22px;
+font-weight:800;
+color:#0F172A;
+margin-bottom:22px;
+}
+
+.cf-item{
+display:flex;
+align-items:flex-start;
+gap:10px;
+margin-bottom:5px;
+}
+
+.cf-item:last-child{
+margin-bottom:0;
+}
+
+.cf-badge{
+padding:4px 10px;
+border-radius:999px;
+font-size:10px;
+font-weight:800;
+letter-spacing:0.3px;
+white-space:nowrap;
+}
+
+.cf-badge.tidak{
+background:#FEE2E2;
+color:#DC2626;
+}
+
+.cf-badge.mungkin{
+background:#FEF3C7;
+color:#D97706;
+margin-right: 5px;
+}
+
+.cf-badge.yakin{
+background:#DCFCE7;
+color:#16A34A;
+margin-right: 22px;
+}
+
+.cf-desc{
+font-size:12px;
+line-height:1.5;
+color:#475569;
+margin-top:1px;
+margin-bottom: 3px;
+}
+
+/* =========================================
+   INKONKLUSIF DETAIL
+========================================= */
+
+.inkonklusif-detail-card{
+    margin-top:24px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E2E8F0;
+    border-radius:24px;
+
+    padding:28px;
+}
+
+.inkonklusif-header{
+    font-size:28px;
+    font-weight:800;
+
+    color:#1E3A8A;
+
+    margin-bottom:14px;
+}
+
+.inkonklusif-desc{
+    color:#475569;
+    line-height:1.8;
+
+    margin-bottom:28px;
+}
+
+.inkonklusif-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+}
+
+.ink-box{
+    background:#F8FAFC;
+
+    border:1px solid #E2E8F0;
+    border-radius:18px;
+
+    padding:20px;
+}
+
+.ink-title{
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:#0F172A;
+
+    margin-bottom:14px;
+}
+
+.ink-content{
+    color:#475569;
+    line-height:1.8;
+}
+
+.durasi-chip-wrapper{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+
+    margin-top:16px;
+}
+
+.durasi-chip{
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+/* =========================================
+   CONFLICT CARD
+========================================= */
+
+.conflict-card {
+    background: #FFFDF5;
+    border: 2px solid #F4C542;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(244, 197, 66, 0.08);
+}
+
+.conflict-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.conflict-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 12px;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.conflict-title {
+    color: #92400E;
+    font-size: 15px;
+    font-weight: 750;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.conflict-subtitle {
+    color: #B45309;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.conflict-desc {
+    margin-top: 14px;
+    margin-left: 56px;
+    color: #D97706;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* =========================================
+   CUSTOM WARNING
+========================================= */
+
+.custom-warning {
+    background: #FFF7ED;
+    border: 1.5px solid #FDBA74;
+    color: #9A3412;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* =========================================
+   INDIKATOR UTAMA MODERN
+========================================= */
+
+.indikator-section{
+    margin-top:24px;
+}
+
+.indikator-title{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    color:#0F4C81;
+    margin-bottom:12px;
+}
+
+.indikator-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.indikator-chip{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#DBEAFE;
+    border:1px solid #BFDBFE;
+    color:#0F4C81;
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    line-height:1;
+}
+
+/* =========================================
+   HASIL PEMBANDING INDIKATOR
+========================================= */
+
+.mini-indikator-title{
+    margin-top:18px;
+    margin-bottom:10px;
+
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.2px;
+
+    color:#0F4C81;
+}
+
+.mini-indikator-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 20px;
+}
+
+.mini-indikator-item{
+    color:#0F4C81;
+    font-size:13px;
+    font-weight:500;
+    line-height:1.5;
+}
+
+/* =========================================
+   CUSTOM BUTTON FIX DARK MODE
+========================================= */
+
+.stButton > button {
+    background: #123157 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 12px 18px !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button:hover {
+    background: #ffffff !important;
+    color: white !important;
+    border: none !important;
+    transform: translateY(-1px);
+}
+
+.stButton > button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* RESET BUTTON */
+
+.btn-reset .stButton > button {
+    background: #0F766E !important;
+}
+
+/* INFO BUTTON */
+
+.btn-info .stButton > button {
+    background: #1D4ED8 !important;
+}
+
+/* =========================================
+   ANALISIS DURASI
+========================================= */
+
+.durasi-analysis-card{
+    margin-top:28px;
+    background:white;
+    border:1px solid #E2E8F0;
+    border-radius:24px;
+    padding:28px;
+}
+
+.durasi-analysis-title{
+    font-size:28px;
+    font-weight:800;
+    color:#0F172A;
+    margin-bottom:10px;
+}
+
+.durasi-analysis-desc{
+    color:#475569;
+    line-height:1.8;
+    margin-bottom:24px;
+}
+
+.durasi-analysis-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.durasi-analysis-item{
+    background:#F8FAFC;
+    border:1px solid #E2E8F0;
+    border-radius:18px;
+    padding:18px;
+    transition:0.2s ease;
+}
+
+.durasi-analysis-item:hover{
+    transform:translateY(-2px);
+}
+
+.durasi-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+}
+
+.durasi-penyakit{
+    font-size:16px;
+    font-weight:800;
+    color:#1E293B;
+}
+
+.durasi-status{
+    background:#FEF3C7;
+    color:#B45309;
+    padding:4px 8px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:800;
+}
+
+.durasi-small-desc{
+    color:#64748B;
+    font-size:13px;
+    line-height:1.7;
+    min-height:72px;
+}
+
+.durasi-bottom{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+}
+
+.durasi-label{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:#64748B;
+}
+
+.durasi-score{
+    font-size:26px;
+    font-weight:800;
+    color:#0F172A;
+}
+
+.pertanyaan-gejala{
+    color:#1E293B;
+    font-weight:600;
+    font-size:16px;
+    margin-bottom:0;
+    line-height:1.7;
+}
+
+.highlight-gejala{
+    color:#5782e0;
+    font-weight:600;
+    font-size:16px;
+    margin-bottom:0;
+    line-height:1.7;
+}
