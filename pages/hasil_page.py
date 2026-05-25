@@ -140,16 +140,12 @@ def show_hasil_page(pindah_halaman):
         st.write("")
         col_btn1, col_btn2 = st.columns(2)
         with col_btn1:
-            st.markdown('<div class="btn-reset">', unsafe_allow_html=True)
-            if st.button("↻ Prediksi Ulang", use_container_width=True):
+            if st.button("↻ Prediksi Ulang",use_container_width=True,type="primary"):
                 pindah_halaman("input")
-            st.markdown('</div>', unsafe_allow_html=True)
 
         with col_btn2:
-            st.markdown('<div class="btn-info">', unsafe_allow_html=True)
-            if st.button("Pelajari Tentang Sistem", use_container_width=True):
+            if st.button("Pelajari Tentang Sistem",use_container_width=True,type="primary"):
                 pindah_halaman("informasi")
-            st.markdown('</div>', unsafe_allow_html=True)
                 
     with col_kanan:
         ringkasan_html = f"""<div class="hasil-sidebar-card scroll-hasil">

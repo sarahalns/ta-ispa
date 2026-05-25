@@ -139,8 +139,8 @@ if "opened" not in query_params:
 
     st.markdown("""
         <div style='text-align: center; margin-top: 15vh;'>
-            <h1 style='color:#1E293B; font-size: 60px; margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px;'>SISTEM PREDIKSI PENYAKIT ISPA BAGIAN ATAS</h1>
-            <h1 style='color:#2563EB; font-size: 60px; margin-top: 0px; padding-top: 0px;'>BERBASIS CERTAINTY FACTOR</h2>
+            <h1 style='color:#1E293B; font-size: 60px; margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px;'>SISTEM PREDIKSI BERBASIS CERTAINTY FACTOR</h1>
+            <h1 style='color:#2563EB; font-size: 60px; margin-top: 0px; padding-top: 0px;'>UNTUK ASESMEN AWAL PENYAKIT ISPA BAGIAN ATAS</h1>
             <p style='color:#64748B; font-size: 16px; margin-top: 20px;'>
                 Mengarahkan ke sistem prediksi....
             </p>

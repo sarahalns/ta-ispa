@@ -45,8 +45,8 @@ def show_input_page(pindah_halaman):
                         📅
                     </div>
                     <div style='margin-left: 20px;'>
-                        <h3 style='margin-bottom: 0px; padding-bottom: 0px; line-height: 1;'>Parameter Klinis Awal</h3>
-                        <p style='font-size: 14px; margin-top: 5px; padding-top: 0px;'>Lengkapi data usia dan durasi keluhan Anda sebagai parameter dasar dalam kalkulasi prediksi risiko penyakit.</p>
+                        <h3 style='margin-bottom: 0px; padding-bottom: 0px; line-height: 1; color: #111827;'>Parameter Klinis Awal</h3>
+                        <p style='font-size: 14px; margin-top: 5px; padding-top: 0px; color: #475569;'>Lengkapi data usia dan durasi keluhan Anda sebagai parameter dasar dalam kalkulasi prediksi risiko penyakit.</p>
                     </div>
                 </div>
             """, unsafe_allow_html=True)
@@ -98,8 +98,8 @@ def show_input_page(pindah_halaman):
                         🏥
                     </div>
                     <div style='margin-left: 20px;'>
-                        <h3 style='margin-bottom: 0px; padding-bottom: 0px; line-height: 1;'>Observasi Gejala Fisik</h3>
-                        <p style='font-size: 14px; margin-top: 5px; padding-top: 0px;'>Tentukan tingkat keyakinan Anda terhadap setiap gejala fisik yang dirasakan untuk memulai kalkulasi bobot prediksi penyakit.</p>
+                        <h3 style='margin-bottom: 0px; padding-bottom: 0px; line-height: 1; color: #111827;'>Observasi Gejala Fisik</h3>
+                        <p style='font-size: 14px; margin-top: 5px; padding-top: 0px;color: #475569;'>Tentukan tingkat keyakinan Anda terhadap setiap gejala fisik yang dirasakan untuk memulai kalkulasi bobot prediksi penyakit.</p>
                     </div>
                 </div>
             """, unsafe_allow_html=True)
@@ -140,8 +140,8 @@ def show_input_page(pindah_halaman):
                         ⚠️
                     </div>
                     <div style='margin-left: 20px;'>
-                        <h3 style='margin-bottom: 0px; padding-bottom: 0px; line-height: 1;'>Indikator Risiko Eksternal</h3>
-                        <p style='font-size: 14px; margin-top: 5px; padding-top: 0px;'>Pilih skala keyakinan mengenai riwayat paparan dan kondisi lingkungan Anda sebagai variabel pendukung dalam kalkulasi prediksi</p>
+                        <h3 style='margin-bottom: 0px; padding-bottom: 0px; line-height: 1;color: #111827;'>Indikator Risiko Eksternal</h3>
+                        <p style='font-size: 14px; margin-top: 5px; padding-top: 0px;color: #475569;'>Pilih skala keyakinan mengenai riwayat paparan dan kondisi lingkungan Anda sebagai variabel pendukung dalam kalkulasi prediksi</p>
                     </div>
                 </div>
             """, unsafe_allow_html=True)

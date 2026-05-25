@@ -54,21 +54,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: #1E293B !important;
 }
 
-
-/* Mengunci warna teks agar tidak berubah di Dark Mode */
-.card-header-flex h3 {
-    margin: 0 !important;
-    color: #1E293B !important;
-    font-size: 20px !important;
-    font-weight: 700 !important;
-}
-
-.card-header-flex p {
-    margin: 0 !important;
-    color: #64748B !important;
-    font-size: 14px !important;
-}
-
 /* Warna label di atas input */
 label[data-testid="stWidgetLabel"] p {
     color: #1E293B !important;
@@ -76,7 +61,6 @@ label[data-testid="stWidgetLabel"] p {
     font-size: 14px !important;
     margin-bottom: 8px !important;
 }
-
 
 /* --- WARNA BACKGROUND CUSTOM UNTUK KARTU (HASIL INSPECT ELEMENT) --- */
 
@@ -102,9 +86,8 @@ div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-test
     border-radius: 16px !important;
 }
 
-/* 3. Mengubah warna teks Judul dan Paragraf agar tetap kontras (putih) */
-div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] h3,
-div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] p {
+.custom-card h3,
+.custom-card p {
     color: #000000 !important;
 }
 
@@ -1188,7 +1171,7 @@ margin-bottom: 3px;
 ========================================= */
 
 .stButton > button {
-    background: #123157 !important;
+    background: #123157!important;
     color: white !important;
     border: none !important;
     border-radius: 12px !important;
@@ -1198,9 +1181,10 @@ margin-bottom: 3px;
     transition: all 0.2s ease !important;
 }
 
+
 .stButton > button:hover {
-    background: #ffffff !important;
-    color: white !important;
+    background: white!important;
+    color: #123157 !important;
     border: none !important;
     transform: translateY(-1px);
 }
