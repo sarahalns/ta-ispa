@@ -218,6 +218,20 @@ def show_input_page(pindah_halaman):
                             "pesan": aturan["pesan"]
                         })   
                         ada_konflik = True
+        
+        if pesan_konflik:
+            for konflik in pesan_konflik:
+                st.markdown(f"""<div class="conflict-card">
+                    <div class="conflict-header">
+                        <div class="conflict-icon">⚠️</div>
+                        <div>
+                            <div class="conflict-title">Konflik Gejala {konflik['kelompok']}</div>
+                            <div class="conflict-subtitle">Gejala yang dipilih:<b>{", ".join(konflik['gejala'])}</b> </div>
+                        </div>
+                    </div>
+                    <div class="conflict-desc">{konflik['pesan']}</div>
+                </div>
+                """, unsafe_allow_html=True)
 
         submit = st.button("Kirim", use_container_width=True, type="primary", disabled=ada_konflik)
         if submit:
@@ -456,17 +470,3 @@ def show_input_page(pindah_halaman):
 
             </div>
             """, unsafe_allow_html=True)
-        
-        if pesan_konflik:
-            for konflik in pesan_konflik:
-                st.markdown(f"""<div class="conflict-card">
-                    <div class="conflict-header">
-                        <div class="conflict-icon">⚠️</div>
-                        <div>
-                            <div class="conflict-title">Konflik Gejala {konflik['kelompok']}</div>
-                            <div class="conflict-subtitle">Gejala yang dipilih:<b>{", ".join(konflik['gejala'])}</b> </div>
-                        </div>
-                    </div>
-                    <div class="conflict-desc">{konflik['pesan']}</div>
-                </div>
-                """, unsafe_allow_html=True)
